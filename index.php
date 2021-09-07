@@ -9,7 +9,14 @@
     require('Connexion.php');
 
         $connexion = new Connexion();
-        $titre = $connexion->titreLivre();
+        $titre = $connexion->titreLivre($_GET['recherche']);
+        
+        ?>
+        <form action="" method="get">
+            <input type="text" name="recherche" id="recherche">
+            <input type="submit" value="recherche">
+        </form>
+        <?php
         ?>
         <form action="" method="get">
             <select name="list" id="list">
@@ -24,6 +31,7 @@
         <?php
         if(isset($_GET["list"]) && $_GET["list"]!= ""){
             $isbn = $connexion->recupISBN($_GET["list"]);
+            var_dump($isbn);
             $livre = $connexion->afficherExemplaire($isbn);
             echo json_encode($livre);
         }else{

@@ -42,17 +42,28 @@ class Connexion{
     }
 
 
-    public function titreLivre() {
-        $requete = $this->bdd->prepare('SELECT titre FROM livre');
-        $requete->execute();
-        
-        $toutsLesTitres = array();
+    public function titreLivre($titreRecherche) {
+        if($titreRecherche!= NULL) {
+            $requete = $this->bdd->prepare('SELECT titre FROM livre WHERE titre LIKE "%'.$titreRecherche.'%"');
+            $requete->execute();
+            
+            $toutsLesTitres = array();
 
-        while ($reponse = $requete->fetch()) {
+            while ($reponse = $requete->fetch()) {
 
-            array_push($toutsLesTitres, $reponse['titre']);
+                array_push($toutsLesTitres, $reponse['titre']);
+            }
+        } else {
+            $requete = $this->bdd->prepare('SELECT titre FROM livre');
+            $requete->execute();
+            
+            $toutsLesTitres = array();
+
+            while ($reponse = $requete->fetch()) {
+
+                array_push($toutsLesTitres, $reponse['titre']);
+            }
         }
-        
         return $toutsLesTitres;
     }
 }
