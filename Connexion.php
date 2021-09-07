@@ -8,7 +8,7 @@ class Connexion{
 
     function __construct(){
         try {
-            $this->bdd = new PDO('mysql:host=localhost; dbname=api; charset=utf8', "root", "");
+            $this->bdd = new PDO('mysql:host=localhost; dbname=test; charset=utf8', "root", "root");
             $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             echo $e->getMessage();
