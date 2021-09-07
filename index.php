@@ -8,13 +8,9 @@
 
     require('Connexion.php');
 
-    if(isset($_GET["isbn"]) && $_GET["isbn"]!= ""){
         $connexion = new Connexion();
-        $livre = $connexion->recupLivre($_GET["isbn"]);
+        $livre = $connexion->recupLivre();
         echo json_encode($livre);
-    }else{
-        echo "{result:noresponse}";
-    }
 
 ?>
 

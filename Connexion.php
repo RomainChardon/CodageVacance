@@ -1,7 +1,6 @@
 <?php
 
 require("Livre.php");
-require("Auteur.php");
 
 class Connexion{
     private $bdd;
@@ -15,16 +14,14 @@ class Connexion{
         }
     }
 
-    function recupLivre($isbn) {
-        $requete = $this->bdd->prepare('SELECT * FROM livre WHERE isbn=:isbn');
-        $requete->bindParam(':isbn', $isbn);
+    function recupLivre() {
+        $requete = $this->bdd->prepare('SELECT * FROM Livre');
         $requete->execute();
-
+        
         $livres = array();
 
         while ($reponse = $requete->fetch()) {
-            $auteur = new Auteur($reponse['nom'], $reponse['prenom']);
-            array_push($livres, new Livre($reponse['isbn'], $reponse['titre'], $auteur, $reponse['editeur'], $reponse['format'], $reponse['section']));
+            array_push($livres,  new Livre($reponse['isbn'], $reponse['titre'], $reponse['nom'], $reponse['prenom'], $reponse['editeur'], $reponse['format'], $reponse['section']) );
         }
         return $livres;
     }
