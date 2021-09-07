@@ -9,8 +9,25 @@
     require('Connexion.php');
 
         $connexion = new Connexion();
-        $livre = $connexion->recupLivre();
-        echo json_encode($livre);
+        $titre = $connexion->titreLivre();
+        ?>
+        <form action="" method="get">
+            <select name="list" id="list">
+            <?php
+                foreach ($titre as $t ) {
+                    echo '<option value="'. $t .'">'. $t .'</option>';
+                }
+            ?>
+            </select>
+            <input type="submit" value="requete">
+        </form>
+        <?php
+        if(isset($_GET["list"]) && $_GET["list"]!= ""){
+            $livre = $connexion->recupLivre($_GET["list"]);
+            echo json_encode($livre);
+        }else{
+            echo "NoReponse";
+        }
 
 ?>
 

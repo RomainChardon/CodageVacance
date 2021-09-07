@@ -8,8 +8,9 @@
         private $editeur;
         private $format;
         private $section;
+        private $categorie;
 
-        function __construct($_isbn, $_titre, $_nom, $_prenom, $_editeur, $_format, $_section) {
+        function __construct($_isbn, $_titre, $_nom, $_prenom, $_editeur, $_format, $_section, $_categorie) {
             $this->isbn = $_isbn;
             $this->titre = $_titre;
             $this->nom = $_nom;
@@ -17,6 +18,7 @@
             $this->editeur = $_editeur;
             $this->format = $_format;
             $this->section = $_section;
+            $this->categorie = $_categorie;
         }
 
         public function jsonSerialize (){
@@ -27,7 +29,8 @@
                 "prenom" => $this->prenom,
                 "editeur" => $this->editeur,
                 "format" => $this->format,
-                "section" => $this->section
+                "section" => $this->section,
+                "categorie" => $this->categorie
             ];
         }
     }
