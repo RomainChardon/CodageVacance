@@ -14,14 +14,18 @@ class Connexion{
         }
     }
 
-    function recupLivre($te) {
-        $req = $this->bdd->prepare('SELECT isbn FROM livre WHERE titre = "'.$te.'"');
-        $req->execute();
+    function recupISBN($te) {
+        $requete = $this->bdd->prepare('SELECT isbn FROM livre WHERE titre = "'.$te.'"');
+        $requete->execute();
 
-        while ($rep = $req->fetch()) {
-            $isbn = $rep['isbn'];
+        while ($reponse = $requete->fetch()) {
+            $isbn = $reponse['isbn'];
         }
 
+        return $isbn;
+    }
+
+    function afficherExemplaire($isbn) {
         $requete = $this->bdd->prepare('SELECT * FROM livre INNER JOIN exemplaire 
         ON livre.isbn= exemplaire.isbn 
         WHERE statut= "disponible"
@@ -36,7 +40,6 @@ class Connexion{
         }
         return $livres;
     }
-
 
 
     public function titreLivre() {

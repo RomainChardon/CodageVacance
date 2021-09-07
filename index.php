@@ -23,7 +23,8 @@
         </form>
         <?php
         if(isset($_GET["list"]) && $_GET["list"]!= ""){
-            $livre = $connexion->recupLivre($_GET["list"]);
+            $isbn = $connexion->recupISBN($_GET["list"]);
+            $livre = $connexion->afficherExemplaire($isbn);
             echo json_encode($livre);
         }else{
             echo "NoReponse";
