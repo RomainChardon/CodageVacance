@@ -2,9 +2,17 @@
 
 require("Livre.php");
 
+/**
+ * Connexion
+ */
 class Connexion{
     private $bdd;
-
+    
+    /**
+     * __construct
+     *
+     * @return void
+     */
     function __construct(){
         try {
             $this->bdd = new PDO('mysql:host=localhost; dbname=pretLivre; charset=utf8', "root", "root");
@@ -13,7 +21,13 @@ class Connexion{
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * recupISBN
+     *
+     * @param  mixed $te
+     * @return void
+     */
     function recupISBN($te) {
         $requete = $this->bdd->prepare('SELECT isbn FROM livre WHERE titre = "'.$te.'"');
         $requete->execute();
@@ -24,7 +38,13 @@ class Connexion{
 
         return $isbn;
     }
-
+    
+    /**
+     * afficherExemplaire
+     *
+     * @param  mixed $isbn
+     * @return void
+     */
     function afficherExemplaire($isbn) {
         $requete = $this->bdd->prepare('SELECT * FROM livre INNER JOIN exemplaire 
         ON livre.isbn= exemplaire.isbn 
@@ -41,7 +61,13 @@ class Connexion{
         return $livres;
     }
 
-
+    
+    /**
+     * titreLivre
+     *
+     * @param  mixed $titreRecherche
+     * @return void
+     */
     public function titreLivre($titreRecherche) {
         if($titreRecherche!= NULL) {
             $requete = $this->bdd->prepare('SELECT titre FROM livre WHERE titre LIKE "%'.$titreRecherche.'%"');

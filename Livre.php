@@ -1,5 +1,8 @@
 <?php
-
+    
+    /**
+     * Livre
+     */
     class Livre implements JsonSerializable {
         private $isbn;
         private $titre;
@@ -9,7 +12,20 @@
         private $format;
         private $section;
         private $categorie;
-
+        
+        /**
+         * __construct
+         *
+         * @param  mixed $_isbn
+         * @param  mixed $_titre
+         * @param  mixed $_nom
+         * @param  mixed $_prenom
+         * @param  mixed $_editeur
+         * @param  mixed $_format
+         * @param  mixed $_section
+         * @param  mixed $_categorie
+         * @return void
+         */
         function __construct($_isbn, $_titre, $_nom, $_prenom, $_editeur, $_format, $_section, $_categorie) {
             $this->isbn = $_isbn;
             $this->titre = $_titre;
@@ -20,7 +36,12 @@
             $this->section = $_section;
             $this->categorie = $_categorie;
         }
-
+        
+        /**
+         * jsonSerialize
+         *
+         * @return void
+         */
         public function jsonSerialize (){
             return [
                 "isbn" => $this->isbn,
