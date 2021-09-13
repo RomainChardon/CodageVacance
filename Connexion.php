@@ -23,7 +23,7 @@ class Connexion{
     }
     
     /**
-     * recupISBN
+     * recupISBN : Cherche l'isbn qui correspond a titre sélèctionné
      *
      * @param  mixed $te
      * @return void
@@ -40,7 +40,7 @@ class Connexion{
     }
     
     /**
-     * afficherExemplaire
+     * afficherExemplaire : Affiche tous les exemplaires qui correspond a l'isbn de recupISBN
      *
      * @param  mixed $isbn
      * @return void
@@ -63,31 +63,32 @@ class Connexion{
 
     
     /**
-     * titreLivre
+     * titreLivre : Si le GET est = a recherche on met dans $toutLesTitres les titres qui possède la recherche personnalisé
+     * Sinon on met tous les titres
      *
      * @param  mixed $titreRecherche
      * @return void
      */
     public function titreLivre($titreRecherche) {
         if($titreRecherche!= NULL) {
-            $requete = $this->bdd->prepare('SELECT titre FROM livre WHERE titre LIKE "%'.$titreRecherche.'%"');
+            $requete = $this->bdd->prepare('SELECT * FROM livre WHERE titre LIKE "%'.$titreRecherche.'%"');
             $requete->execute();
             
             $toutsLesTitres = array();
 
             while ($reponse = $requete->fetch()) {
 
-                array_push($toutsLesTitres, $reponse['titre']);
+                array_push($toutsLesTitres, new Livre($reponse['isbn'], $reponse['titre'], $reponse['nom'], $reponse['prenom'], $reponse['editeur'], $reponse['format'], $reponse['section'], $reponse['categorie']) );
             }
         } else {
-            $requete = $this->bdd->prepare('SELECT titre FROM livre');
+            $requete = $this->bdd->prepare('SELECT * FROM livre');
             $requete->execute();
             
             $toutsLesTitres = array();
 
             while ($reponse = $requete->fetch()) {
 
-                array_push($toutsLesTitres, $reponse['titre']);
+                array_push($toutsLesTitres, new Livre($reponse['isbn'], $reponse['titre'], $reponse['nom'], $reponse['prenom'], $reponse['editeur'], $reponse['format'], $reponse['section'], $reponse['categorie']) );
             }
         }
         return $toutsLesTitres;

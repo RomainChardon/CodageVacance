@@ -26,7 +26,7 @@
     require('Connexion.php');
 
         $connexion = new Connexion();
-        $titre = $connexion->titreLivre($_GET['recherche']);
+        
         
        
         if(isset($_GET["list"]) && $_GET["list"]!= ""){
@@ -34,7 +34,8 @@
             $livre = $connexion->afficherExemplaire($isbn);
             echo json_encode($livre);
         }else{
-            echo "NoReponse";
+            $titre = $connexion->titreLivre($_GET['recherche']);
+            echo json_encode($titre);
         }
 
 ?>

@@ -13,17 +13,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Connexion\u003A\u003ArecupISBN\u0028\u0029",
             "name": "recupISBN",
-            "summary": "recupISBN",
+            "summary": "recupISBN\u0020\u003A\u0020Cherche\u0020l\u0027isbn\u0020qui\u0020correspond\u0020a\u0020titre\u0020s\u00E9l\u00E8ctionn\u00E9",
             "url": "classes/Connexion.html#method_recupISBN"
         },                {
             "fqsen": "\\Connexion\u003A\u003AafficherExemplaire\u0028\u0029",
             "name": "afficherExemplaire",
-            "summary": "afficherExemplaire",
+            "summary": "afficherExemplaire\u0020\u003A\u0020Affiche\u0020tous\u0020les\u0020exemplaires\u0020qui\u0020correspond\u0020a\u0020l\u0027isbn\u0020de\u0020recupISBN",
             "url": "classes/Connexion.html#method_afficherExemplaire"
         },                {
             "fqsen": "\\Connexion\u003A\u003AtitreLivre\u0028\u0029",
             "name": "titreLivre",
-            "summary": "titreLivre",
+            "summary": "titreLivre\u0020\u003A\u0020Si\u0020le\u0020GET\u0020est\u0020\u003D\u0020a\u0020recherche\u0020on\u0020met\u0020dans\u0020\u0024toutLesTitres\u0020les\u0020titres\u0020qui\u0020poss\u00E8de\u0020la\u0020recherche\u0020personnalis\u00E9\nSinon\u0020on\u0020met\u0020tous\u0020les\u0020titres",
             "url": "classes/Connexion.html#method_titreLivre"
         },                {
             "fqsen": "\\Connexion\u003A\u003A\u0024bdd",
