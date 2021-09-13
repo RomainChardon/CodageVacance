@@ -1,7 +1,7 @@
 <?php
     
     /**
-     * Utilisateur
+     * Utilisateur : Class utilisateur
      */
     class Utilisateur implements JsonSerializable {
         private $id;

@@ -1,7 +1,7 @@
 <?php
     
     /**
-     * Exemplaire
+     * Exemplaire : Class des exemplaire
      */
     class Exemplaire {
         private $id;

@@ -1,7 +1,7 @@
 <?php
     
     /**
-     * Livre
+     * Livre : Class des livre
      */
     class Livre implements JsonSerializable {
         private $isbn;

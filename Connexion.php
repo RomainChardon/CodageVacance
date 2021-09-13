@@ -3,7 +3,7 @@
 require("Livre.php");
 
 /**
- * Connexion
+ * Connexion : Connexion et communication avec la BDD
  */
 class Connexion{
     private $bdd;
