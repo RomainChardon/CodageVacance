@@ -32,10 +32,10 @@
         if(isset($_GET["list"]) && $_GET["list"]!= ""){
             $isbn = $connexion->recupISBN($_GET["list"]);
             $livre = $connexion->afficherExemplaire($isbn);
-            echo json_encode($livre);
+            echo "{livres:".json_encode($livre)."}";
         }else{
             $titre = $connexion->titreLivre($_GET['recherche']);
-            echo json_encode($titre);
+            echo "{livres:".json_encode($titre)."}";
         }
 
 ?>
