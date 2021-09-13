@@ -12,7 +12,7 @@ Dans cette exemple le livre rechercher est "L'histoire du monde", et il nous sor
 ![archi](/assets/archiAppli.png)
 
 ### Fonctionnement de mon API :
-*Pour plus d'info voir le phpinfo*
+*Pour plus d'info voir le phpinfo ``.../phpdoc/``*
 
 L'api renvoi de base tous les Livres. <br>
 Le ``.../?list="titre de livre"`` renvoi tous les exemplaires diponible pour ce livre. <br>
