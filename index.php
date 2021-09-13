@@ -31,7 +31,6 @@
        
         if(isset($_GET["list"]) && $_GET["list"]!= ""){
             $isbn = $connexion->recupISBN($_GET["list"]);
-            var_dump($isbn);
             $livre = $connexion->afficherExemplaire($isbn);
             echo json_encode($livre);
         }else{
