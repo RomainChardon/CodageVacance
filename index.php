@@ -5,20 +5,21 @@
             <input type="text" name="recherche" id="recherche">
             <input type="submit" value="recherche">
         </form>
-        <?php
-        ?>
+        
+        
         <form action="" method="get">
             <select name="list" id="list">
-            <?php
+
+
                 foreach ($titre as $t ) {
                     echo '<option value="'. $t .'">'. $t .'</option>';
                 }
-            ?>
+
+                
             </select>
             <input type="submit" value="requete">
         </form>
-        <?php
-</form> -->
+-->
 
 <?php
 
