@@ -14,7 +14,7 @@ Dans cette exemple le livre rechercher est "L'histoire du monde", et il nous sor
 ### Fonctionnement de mon API :
 *Pour plus d'info voir le phpinfo*
 
-L'api renvoi de base tous les Livres.
-le .../?list="titre de livre" renvoi tous les exemplaires diponible pour ce livre
-le .../?recherche="votre recherche personalisé" renvoi la liste de tous les livres comportant les caractères taper.
+L'api renvoi de base tous les Livres. <br>
+Le ``.../?list="titre de livre"`` renvoi tous les exemplaires diponible pour ce livre. <br>
+Le ``.../?recherche="votre recherche personalisé"`` renvoi la liste de tous les livres comportant les caractères taper. <br>
 
