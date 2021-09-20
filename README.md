@@ -22,4 +22,4 @@ Le ``.../?recherche="votre recherche personalisé"`` renvoi la liste de tous les
 ![archi](/assets/diag.png)
 
 ### Diagramme de séquence
-![archi](/assets/Diag2.png)
+![archi](/assets/diag2.png)
